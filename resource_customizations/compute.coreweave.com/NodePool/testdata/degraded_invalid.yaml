@@ -1,0 +1,32 @@
+apiVersion: compute.coreweave.com/v1alpha1
+kind: NodePool
+metadata:
+  creationTimestamp: "2025-09-08T22:14:25Z"
+  finalizers:
+  - compute.coreweave.com/nodepool-finalizer
+  generation: 1
+  name: test-nodepool
+  resourceVersion: "124299107"
+  uid: f69f51f7-487a-4902-9a78-befcfae4671a
+spec:
+  autoscaling: false
+  computeClass: default
+  instanceType: gd-8xh100ib-i128
+  lifecycle:
+    disableUnhealthyNodeEviction: false
+    scaleDownStrategy: PreferIdle
+  maxNodes: 0
+  minNodes: 0
+  nodeConfigurationUpdateStrategy:
+    type: Manual
+  targetNodes: 10
+status:
+  conditions:
+  - lastTransitionTime: "2026-01-09T16:58:05Z"
+    message: Invalid instance type
+    reason: Invalid
+    status: "False"
+    type: Validated
+  currentNodes: 0
+  inProgress: 0
+  queuedNodes: 0

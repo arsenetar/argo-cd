@@ -1,0 +1,48 @@
+apiVersion: compute.coreweave.com/v1alpha1
+kind: NodePool
+metadata:
+  creationTimestamp: "2025-09-08T22:14:25Z"
+  finalizers:
+  - compute.coreweave.com/nodepool-finalizer
+  generation: 1
+  name: test-nodepool
+  resourceVersion: "124299107"
+  uid: f69f51f7-487a-4902-9a78-befcfae4671a
+spec:
+  autoscaling: false
+  computeClass: default
+  instanceType: gd-8xh100ib-i128
+  lifecycle:
+    disableUnhealthyNodeEviction: false
+    scaleDownStrategy: PreferIdle
+  maxNodes: 0
+  minNodes: 0
+  nodeConfigurationUpdateStrategy:
+    type: Manual
+  targetNodes: 10
+status:
+  conditions:
+  - lastTransitionTime: "2026-01-09T16:58:05Z"
+    message: successfully validated
+    reason: Valid
+    status: "True"
+    type: Validated
+  - lastTransitionTime: "2026-01-08T20:58:07Z"
+    message: current node count 12 exceeds target node count 10
+    reason: OverTarget
+    status: "False"
+    type: AtTarget
+  - lastTransitionTime: "2026-01-09T16:58:05Z"
+    message: capacity available to meet requested targetNodes
+    reason: Sufficient
+    status: "True"
+    type: Capacity
+  - lastTransitionTime: "2026-01-09T16:58:05Z"
+    message: nodePool is under quota for instance type gd-8xh100ib-i128, compute class default in zone RNO2A
+    reason: Under
+    status: "True"
+    type: Quota
+  currentNodes: 12
+  inProgress: 0
+  nodeProfile: some-node-profile
+  queuedNodes: 0

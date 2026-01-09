@@ -1,0 +1,33 @@
+tests:
+- healthStatus:
+    status: Healthy
+    message: 'current node count 10 equals target node count 10'
+  inputPath: testdata/healthy.yaml
+- healthStatus:
+    status: Progressing
+    message: 'current node count 8 less than target node count 10'
+  inputPath: testdata/progressing_underTarget.yaml
+- healthStatus:
+    status: Progressing
+    message: 'current node count 12 exceeds target node count 10'
+  inputPath: testdata/progressing_overTarget.yaml
+- healthStatus:
+    status: Progressing
+    message: 'no capacity available'
+  inputPath: testdata/progressing_noCapacity.yaml
+- healthStatus:
+    status: Progressing
+    message: 'Waiting for nodepool status'
+  inputPath: testdata/progressing_noStatus.yaml
+- healthStatus:
+    status: Progressing
+    message: 'Waiting for nodepool status conditions'
+  inputPath: testdata/progressing_noStatusConditions.yaml
+- healthStatus:
+    status: Degraded
+    message: 'targetNodes pushes org over quota by 10. limit is 8 for instance type gd-8xh100ib-i128, compute class default in zone RNO2A'
+  inputPath: testdata/degraded_overQuota.yaml
+- healthStatus:
+    status: Degraded
+    message: 'Invalid instance type'
+  inputPath: testdata/degraded_invalid.yaml
